@@ -1,0 +1,1 @@
+karate.configure('ssl', true)
