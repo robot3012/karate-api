@@ -25,14 +25,32 @@ Clona el repositorio y asegúrate de tener Java 17 y Maven instalados.
 
 ## Ejecución de pruebas
 
+
+### Ejecución básica
 ```bash
 mvn test
 ```
 
+### Ejecutar pruebas con tags y ambiente
+```bash
+mvn clean test -Dkarate.env=test "-Dkarate.options=--tags @<tag>"
+```
+
+### Solo ejecutar pruebas con tags
+```bash
+mvn test "-Dkarate.options=--tags @test"
+```
+
 ## Estructura del proyecto
 
-- `/src`: Código fuente principal y features de Karate
-- `/tests`: Pruebas automatizadas (features y scripts)
+- `/src/main/java`: Código fuente principal (si aplica)
+- `/src/test/java/bdd`: Features de Karate organizados por dominio (api_rest, api_soap, autenticaciones, mascotas, usuarios)
+- `/src/test/java/headers`, `/params`, `/requests`, `/responses`: Archivos auxiliares para pruebas (headers, parámetros, requests y respuestas)
+- `/src/test/java/utils`: Utilidades y helpers para las pruebas
+- `karate-config.js`: Configuración global de Karate
+- `KarateRunner.java`: Clase runner para ejecutar los tests
+- `logback-test.xml`: Configuración de logs para pruebas
+- `pom.xml`: Archivo de configuración de Maven
 
 ## Contribución
 

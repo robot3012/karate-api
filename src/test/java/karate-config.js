@@ -1,6 +1,7 @@
 function fn() {
   karate.configure('ssl', true); // enable
   var BaseUrl = 'https://petstore.swagger.io/'
+  var baseUrlAut =''
   var env = karate.env; // get system property 'karate.env'
   karate.log('karate.env system property was:', env);
   if (!env) {
@@ -8,6 +9,7 @@ function fn() {
   }
 
   if (env == 'dev') {
+    baseUrlAut = 'https://dummyjson.com'
     // customize
     // e.g. config.foo = 'bar';
   } else if (env == 'e2e') {
@@ -17,7 +19,9 @@ function fn() {
    var config = {
       env: env,
       BaseUrl: BaseUrl,
-      myVarName: 'someValue'
+      myVarName: 'someValue',
+      baseUrlAut:baseUrlAut
+
    }
   return config;
 }
